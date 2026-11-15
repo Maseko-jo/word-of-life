@@ -1,0 +1,1165 @@
+<title>Word of Life Family Church</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,500;0,600;0,700;1,500&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap">
+
+<style id="site-css">
+/* ===========================================================================
+   ABIDE - the church's theme for the year. Royal blue, white and black carry
+   the whole site; each ministry shifts the same token set rather than
+   introducing a new design, so the family resemblance holds.
+   ========================================================================= */
+:root {
+  --ground:      #FFFFFF;
+  --surface:     #F6F8FD;
+  --sunk:        #EDF1FA;
+  --ink:         #0C0E14;
+  --muted:       #4C556B;
+  --faint:       #7A8299;
+  --accent:      #1D3FB0;
+  --accent-soft: #E6ECFB;
+  --line:        #DCE3F1;
+  --band:        #0F1B44;
+  --band-ink:    #EEF2FF;
+  --mark:        #1D3FB0;
+  --page-tint:   transparent;
+
+  --w-page: 66rem;
+  --w-read: 34rem;
+  --r-sm: 3px;
+  --r-md: 5px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground:      #07080C;
+    --surface:     #10131C;
+    --sunk:        #161A26;
+    --ink:         #F1F4FA;
+    --muted:       #9BA4BA;
+    --faint:       #7A8299;
+    --accent:      #7FA0F2;
+    --accent-soft: #16203C;
+    --line:        #1E2432;
+    --band:        #0A1130;
+    --band-ink:    #E8EDFF;
+    --mark:        #7FA0F2;
+  }
+}
+:root[data-theme="dark"] {
+  --ground:      #07080C;
+  --surface:     #10131C;
+  --sunk:        #161A26;
+  --ink:         #F1F4FA;
+  --muted:       #9BA4BA;
+  --faint:       #7A8299;
+  --accent:      #7FA0F2;
+  --accent-soft: #16203C;
+  --line:        #1E2432;
+  --band:        #0A1130;
+  --band-ink:    #E8EDFF;
+  --mark:        #7FA0F2;
+}
+
+/* --------------------------------------------------- ministry variations --
+   Oasis: cream, black and white. Kingdom Kids: warm and rounder, for the
+   little ones. Young Adults: the house blue taken deeper. Anything added
+   later simply inherits the house theme, which is the point.
+   ------------------------------------------------------------------------ */
+.dept-oasis {
+  --accent:      #16161A;
+  --accent-soft: #EDE5D4;
+  --line:        #E0D8C7;
+  --surface:     #FAF6EC;
+  --sunk:        #F3ECDD;
+  --mark:        #16161A;
+  --page-tint:   #FBF8F1;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .dept-oasis {
+    --accent:      #E9E2D2;
+    --accent-soft: #262219;
+    --line:        #2A261D;
+    --surface:     #14120D;
+    --sunk:        #1A170F;
+    --mark:        #E9E2D2;
+    --page-tint:   #0C0B08;
+  }
+}
+:root[data-theme="dark"] .dept-oasis {
+  --accent:      #E9E2D2;
+  --accent-soft: #262219;
+  --line:        #2A261D;
+  --surface:     #14120D;
+  --sunk:        #1A170F;
+  --mark:        #E9E2D2;
+  --page-tint:   #0C0B08;
+}
+
+.dept-kingdom-kids {
+  --accent:      #C96A12;
+  --accent-soft: #FCECD5;
+  --line:        #EFDFC6;
+  --surface:     #FFFAF2;
+  --sunk:        #FDF2E2;
+  --mark:        #C96A12;
+  --page-tint:   #FFFCF6;
+  --r-sm: 14px;
+  --r-md: 18px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .dept-kingdom-kids {
+    --accent:      #EFA85A;
+    --accent-soft: #2C1F0E;
+    --line:        #2E2517;
+    --surface:     #16110A;
+    --sunk:        #1C1509;
+    --mark:        #EFA85A;
+    --page-tint:   #0C0906;
+  }
+}
+:root[data-theme="dark"] .dept-kingdom-kids {
+  --accent:      #EFA85A;
+  --accent-soft: #2C1F0E;
+  --line:        #2E2517;
+  --surface:     #16110A;
+  --sunk:        #1C1509;
+  --mark:        #EFA85A;
+  --page-tint:   #0C0906;
+}
+
+.dept-young-adults {
+  --accent:      #14336E;
+  --accent-soft: #E2E9F6;
+  --page-tint:   #F8FAFE;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .dept-young-adults {
+    --accent:      #93B2F0;
+    --accent-soft: #111C33;
+    --page-tint:   #06070B;
+  }
+}
+:root[data-theme="dark"] .dept-young-adults {
+  --accent:      #93B2F0;
+  --accent-soft: #111C33;
+  --page-tint:   #06070B;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: "Alegreya Sans", "Segoe UI", system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: Vollkorn, Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  line-height: 1.18;
+  text-wrap: balance;
+  margin: 0;
+}
+
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, [contenteditable]:focus-visible,
+input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.wrap {
+  max-width: var(--w-page);
+  margin-inline: auto;
+  padding-inline: 22px;
+}
+
+/* ---------------------------------------------------------------- header -- */
+.masthead {
+  border-bottom: 1px solid var(--line);
+  background: var(--ground);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.masthead .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-block: 13px;
+}
+.wordmark {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  font-family: Vollkorn, Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+}
+.wordmark .mark { color: var(--mark); font-size: 1.05em; line-height: 1; }
+.mainnav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-weight: 500;
+}
+.mainnav a { color: var(--muted); text-decoration: none; }
+.mainnav a:hover, .mainnav a.on { color: var(--ink); }
+.mainnav a.on { box-shadow: inset 0 -2px 0 var(--accent); }
+
+/* ------------------------------------------------------------ abide band -- */
+/* The year's theme is the first thing the church itself would say, so it is
+   the first thing the page says. */
+.abide {
+  background: var(--band);
+  color: var(--band-ink);
+}
+.abide .wrap {
+  padding-block: clamp(34px, 5.5vw, 54px);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(24px, 5vw, 56px);
+  align-items: center;
+}
+@media (max-width: 720px) { .abide .wrap { grid-template-columns: 1fr; gap: 20px; } }
+
+.abide .year {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  color: rgba(238,242,255,0.6);
+  margin: 0 0 8px;
+}
+.abide .word {
+  font-family: Vollkorn, Georgia, serif;
+  font-size: clamp(3rem, 11vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 0.92;
+  margin: 0;
+}
+.abide blockquote {
+  margin: 0;
+  font-family: Vollkorn, Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.02rem, 2vw, 1.2rem);
+  line-height: 1.5;
+  max-width: 32rem;
+  border-left: 2px solid rgba(238,242,255,0.3);
+  padding-left: 18px;
+}
+.abide cite {
+  display: block;
+  margin-top: 9px;
+  font-family: "Alegreya Sans", sans-serif;
+  font-style: normal;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: rgba(238,242,255,0.6);
+}
+
+/* ----------------------------------------------------------------- entry -- */
+.entry {
+  padding-block: clamp(42px, 7vw, 72px) clamp(32px, 5vw, 50px);
+  display: grid;
+  gap: 34px;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  align-items: start;
+}
+@media (max-width: 760px) { .entry { grid-template-columns: 1fr; gap: 30px; } }
+
+.eyebrow {
+  font-size: 0.77rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  color: var(--mark);
+  margin: 0 0 14px;
+}
+.entry h1 {
+  font-size: clamp(2.2rem, 5.6vw, 3.3rem);
+  letter-spacing: -0.015em;
+  margin-bottom: 18px;
+}
+.entry .lede {
+  font-size: 1.14rem;
+  color: var(--muted);
+  max-width: var(--w-read);
+  margin: 0;
+}
+
+/* ------------------------------------------------------------ hymn board -- */
+/* The slotted board at the front of the church - every church has one, and it
+   is the natural home for the week's details. */
+.board {
+  background: var(--band);
+  color: var(--band-ink);
+  border-radius: var(--r-md);
+  padding: 20px 20px 22px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+.board h2 {
+  font-size: 0.76rem;
+  font-family: "Alegreya Sans", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.17em;
+  font-weight: 700;
+  color: rgba(238,242,255,0.62);
+  margin-bottom: 14px;
+}
+.board dl { margin: 0; }
+.slot {
+  display: grid;
+  grid-template-columns: 5.4rem minmax(0, 1fr);
+  gap: 12px;
+  align-items: baseline;
+  padding-block: 9px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+.slot:first-of-type { border-top: 0; }
+.slot dt {
+  font-size: 0.71rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: rgba(238,242,255,0.58);
+}
+.slot dd {
+  margin: 0;
+  font-family: Vollkorn, Georgia, serif;
+  font-size: 1.1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* -------------------------------------------------------------- sections -- */
+section { padding-block: clamp(38px, 6vw, 60px); }
+.section-head { margin-bottom: 30px; max-width: var(--w-read); }
+.section-head h2 { font-size: clamp(1.5rem, 3.4vw, 2rem); margin-bottom: 10px; }
+.section-head p { margin: 0; color: var(--muted); }
+.rule { border: 0; border-top: 1px solid var(--line); margin: 0; }
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 30px;
+}
+.pillar h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.pillar h3 .glyph { width: 25px; height: 25px; flex: none; color: var(--mark); }
+.pillar p { margin: 0; color: var(--muted); }
+
+/* departments as doorways */
+.doorways {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 18px;
+}
+.doorway {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--doorway-mark, var(--accent));
+  border-radius: var(--r-sm);
+  padding: 22px 20px 20px;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+.doorway:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px -14px rgba(12,14,20,0.55);
+}
+.doorway h3 { font-size: 1.28rem; margin-bottom: 7px; }
+.doorway p { margin: 0 0 16px; color: var(--muted); font-size: 0.96rem; }
+.doorway .go {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: var(--doorway-mark, var(--accent));
+}
+/* each door carries its own room's colour, so the ministries are recognisable
+   before you have even stepped through */
+.doorway[data-slug="oasis"]        { --doorway-mark: #16161A; }
+.doorway[data-slug="kingdom-kids"] { --doorway-mark: #C96A12; }
+.doorway[data-slug="young-adults"] { --doorway-mark: #14336E; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .doorway[data-slug="oasis"]        { --doorway-mark: #E9E2D2; }
+  :root:not([data-theme="light"]) .doorway[data-slug="kingdom-kids"] { --doorway-mark: #EFA85A; }
+  :root:not([data-theme="light"]) .doorway[data-slug="young-adults"] { --doorway-mark: #93B2F0; }
+}
+:root[data-theme="dark"] .doorway[data-slug="oasis"]        { --doorway-mark: #E9E2D2; }
+:root[data-theme="dark"] .doorway[data-slug="kingdom-kids"] { --doorway-mark: #EFA85A; }
+:root[data-theme="dark"] .doorway[data-slug="young-adults"] { --doorway-mark: #93B2F0; }
+
+/* pastor + team */
+.people {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 40px;
+  align-items: start;
+}
+@media (max-width: 760px) { .people { grid-template-columns: 1fr; gap: 28px; } }
+.pastor {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  padding: 24px;
+}
+.portrait {
+  width: 62px; height: 62px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: grid;
+  place-items: center;
+  font-family: Vollkorn, Georgia, serif;
+  font-size: 1.45rem;
+  margin-bottom: 16px;
+}
+.pastor h3 { font-size: 1.32rem; margin-bottom: 2px; }
+.pastor .role {
+  font-size: 0.77rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--mark);
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+.pastor p { margin: 0; color: var(--muted); }
+.team-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 14px;
+  padding-block: 13px;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+}
+.team-row:first-child { border-top: 1px solid var(--line); }
+.team-row .who { font-weight: 500; }
+.team-row .what { color: var(--muted); font-size: 0.94rem; }
+
+/* find us */
+.find {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 34px;
+  align-items: start;
+}
+@media (max-width: 760px) { .find { grid-template-columns: 1fr; } }
+.where { margin: 0; }
+.where dt {
+  font-size: 0.73rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--faint);
+  margin-top: 16px;
+}
+.where dt:first-child { margin-top: 0; }
+.where dd { margin: 3px 0 0; font-size: 1.04rem; }
+.compass {
+  background: var(--sunk);
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  padding: 26px;
+  display: grid;
+  place-items: center;
+  gap: 13px;
+  text-align: center;
+}
+.compass svg { color: var(--accent); }
+.compass .place { font-family: Vollkorn, Georgia, serif; font-size: 1.28rem; }
+.compass .sub { color: var(--muted); font-size: 0.92rem; }
+
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--ground);
+  border: 1px solid var(--accent);
+  border-radius: var(--r-sm);
+  padding: 9px 18px;
+  font: inherit;
+  font-size: 0.87rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn.quiet { background: transparent; color: var(--accent); }
+
+/* ------------------------------------------------------ department pages -- */
+.deptpage { background: var(--page-tint); }
+.dept-head { padding-block: clamp(36px, 6vw, 60px) 0; }
+.backlink {
+  display: inline-block;
+  font-size: 0.79rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: var(--muted);
+  text-decoration: none;
+  margin-bottom: 22px;
+}
+.backlink:hover { color: var(--ink); }
+.dept-head h1 {
+  font-size: clamp(2.1rem, 5.4vw, 3rem);
+  letter-spacing: -0.015em;
+  margin-bottom: 14px;
+}
+.dept-head .lede {
+  font-size: 1.12rem;
+  color: var(--muted);
+  max-width: var(--w-read);
+  margin: 0;
+}
+.dept-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 42px;
+  align-items: start;
+  padding-block: clamp(32px, 5vw, 50px);
+}
+@media (max-width: 760px) { .dept-body { grid-template-columns: 1fr; gap: 28px; } }
+.dept-prose h2 { font-size: 1.3rem; margin: 28px 0 9px; }
+.dept-prose h2:first-child { margin-top: 0; }
+.dept-prose p { margin: 0; color: var(--muted); max-width: var(--w-read); }
+.dept-facts {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 20px 22px;
+  margin: 0;
+}
+.dept-facts dt {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--faint);
+  margin-top: 15px;
+}
+.dept-facts dt:first-child { margin-top: 0; }
+.dept-facts dd { margin: 3px 0 0; }
+
+/* ---------------------------------------------------------------- footer -- */
+footer { border-top: 1px solid var(--line); background: var(--surface); }
+footer .wrap {
+  padding-block: 30px 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+footer .blessing {
+  font-family: Vollkorn, Georgia, serif;
+  font-style: italic;
+  color: var(--muted);
+  max-width: 30rem;
+  margin: 0;
+}
+.editbtn {
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  color: var(--faint);
+  font: inherit;
+  font-size: 0.77rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.editbtn:hover { color: var(--ink); border-color: var(--muted); }
+
+/* ------------------------------------------------------------ edit mode --- */
+.editbar {
+  position: sticky;
+  bottom: 0;
+  z-index: 30;
+  background: var(--band);
+  color: var(--band-ink);
+  display: none;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 12px 22px;
+}
+body[data-edit="on"] .editbar { display: flex; }
+.editbar .hint { font-size: 0.89rem; color: rgba(238,242,255,0.72); margin-right: auto; }
+.editbar .btn { color: var(--band); background: var(--band-ink); border-color: var(--band-ink); }
+.editbar .btn.quiet { background: transparent; color: var(--band-ink); border-color: rgba(238,242,255,0.4); }
+
+body[data-edit="on"] [data-bind] {
+  outline: 1px dashed var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+  min-width: 2rem;
+}
+.editonly { display: none; }
+body[data-edit="on"] .editonly { display: flex; }
+.unset { color: var(--faint); font-style: italic; }
+.board .unset { color: rgba(238,242,255,0.45); }
+
+.dept-admin { margin-top: 18px; gap: 10px; flex-wrap: wrap; }
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 74px;
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: var(--ground);
+  padding: 10px 18px;
+  border-radius: var(--r-sm);
+  font-size: 0.89rem;
+  z-index: 60;
+  max-width: min(90vw, 30rem);
+  text-align: center;
+}
+
+/* ministry editor - only ever visible in edit mode */
+.dept-editform { display: none; padding-block: 6px 40px; }
+body[data-edit="on"] .dept-editform { display: block; }
+.dept-editform h2 { font-size: 1.28rem; margin: 0 0 16px; }
+.dept-field { display: block; margin-bottom: 14px; max-width: 44rem; }
+.dept-field span {
+  display: block;
+  font-size: 0.73rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--faint);
+  margin-bottom: 5px;
+}
+.dept-field input, .dept-field textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--ink);
+  background: var(--ground);
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  padding: 9px 11px;
+  resize: vertical;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+</style>
+
+<div id="app"></div>
+
+<script id="site-data" type="application/json">
+{}
+</script>
+
+<script id="site-js">
+(function () {
+  "use strict";
+
+  /* ------------------------------------------------------------------ data --
+     The whole site reads from this one object. Editing in the browser writes
+     it back to the artifact's store, so wording, times and people change
+     without touching code.
+     Fields left as "" show a quiet "Not set yet" - those are the ones that
+     genuinely need filling in: service times, names, address, contact.
+  -------------------------------------------------------------------------- */
+  function clone(o) { return JSON.parse(JSON.stringify(o)); }
+
+  var DEFAULTS = {
+    church: "Word of Life Family Church",
+
+    yearLabel: "Our theme for this year",
+    yearWord: "Abide",
+    yearVerse: "Abide in me, and I in you. As the branch cannot bear fruit by itself, unless it abides in the vine, neither can you, unless you abide in me.",
+    yearVerseRef: "John 15:4",
+
+    welcomeEyebrow: "Bible Based. Christ Centered. Spirit Led.",
+    welcomeTitle: "Come in. There is a place at the table for you.",
+    welcomeLede: "Word of Life has been part of this community since 1952, when it began as the Vereeniging Baptist Church near the town centre. In the 1990s we moved to the corner of Lee and Zea Avenue in Arcon Park, where we still meet. We are a family of ordinary people who have found our life in Jesus Christ - gathering to worship Him, to pray for one another, and to carry each other's weeks. Whether you have walked with God for forty years or you are only wondering who He is, you will not be a stranger here for long.",
+
+    boardService: "08:00 (also online) and 09:30",
+    boardPrayer: "Life Groups, Wednesdays 18:00",
+    boardReading: "",
+
+    gatherTitle: "What we gather for",
+    gatherLede: "Three things hold this church together. Everything else we do grows out of them.",
+    pillar1Title: "Christ at the centre",
+    pillar1Body: "We are not built on a personality or a programme. Every song, every sermon and every decision is measured against Jesus - who He is, what He has done, and what He asks of us.",
+    pillar2Title: "Real fellowship",
+    pillar2Body: "Church is not an hour on a Sunday. It is knowing and being known: sharing meals, showing up when things are hard, and making room for the people the world overlooks.",
+    pillar3Title: "Prayer that keeps going",
+    pillar3Body: "We pray together and we pray for one another through the week. No request is too small to bring, and no situation is past praying about.",
+
+    deptTitle: "Our ministries",
+    deptLede: "Every season of life has a home in this church. Step through any door to see what happens there.",
+
+    pastorSectionTitle: "The pastor and the team",
+    pastorSectionLede: "The people who carry the day-to-day work of the church, and who you can come to with anything.",
+    pastorName: "Byron Mans",
+    pastorRole: "Pastor",
+    pastorWord: "",
+
+    team: [
+      { who: "", what: "Worship and music" },
+      { who: "", what: "Prayer and intercession" },
+      { who: "", what: "Ushering and welcome" },
+      { who: "", what: "Administration" }
+    ],
+
+    findTitle: "Finding us",
+    findLede: "We meet on the corner of Lee and Zea Avenue in Arcon Park, Vereeniging. Sunday services are at 08:00 and 09:30, the first of which is also streamed, and there is a Worship Night on the last Sunday of every month at 17:30. If you are coming for the first time, phone the church office and someone will meet you at the door.",
+    addressLine: "Cnr Lee & Zea Avenue",
+    suburb: "Arcon Park",
+    town: "Vereeniging",
+    province: "Gauteng, South Africa",
+    phone: "016 428 1137",
+    email: "church@wordoflifebaptist.co.za",
+
+    blessing: "The grace of our Lord Jesus Christ be with you all.",
+
+    departments: [
+      {
+        slug: "oasis",
+        name: "Oasis Youth Ministry",
+        short: "A place for our teenagers to breathe, ask honest questions, and find friendships that hold.",
+        heart: "Oasis exists because being a teenager is hard, and doing it alone is harder. This is where our young people come to be known by name - to worship without feeling watched, to ask the questions they are afraid to ask anywhere else, and to hear that Jesus is neither distant nor disappointed in them.",
+        gathering: "We open with worship, spend real time in the Word, and then break into smaller groups where everyone actually gets to talk. There is always time afterwards to just be together.",
+        forWho: "Grades 8 to 12",
+        leader: "",
+        meets: "Fridays, 18:30"
+      },
+      {
+        slug: "kingdom-kids",
+        name: "Kingdom Kids Ministry",
+        short: "Our children are not the church of tomorrow. They are the church today.",
+        heart: "Kingdom Kids teaches our little ones the story of God in a way they can hold on to - songs they will still be singing at home on Tuesday, Scripture in their own words, play, and a great deal of laughing. We want every child to grow up knowing they are loved by God and safe in this building.",
+        gathering: "Songs, a Bible story told properly, a craft or activity that sends the lesson home, and prayer together before we hand them back to their parents.",
+        forWho: "Primary-school age and younger",
+        leader: "",
+        meets: ""
+      },
+      {
+        slug: "young-adults",
+        name: "Young Adults Ministry",
+        short: "For the season of first jobs, studies, and decisions that feel far too big.",
+        heart: "This is the stage where faith either becomes your own or quietly slips away. Young Adults is where we make it our own together - working out what following Christ looks like in an ordinary week of work, study, money, relationships and pressure, alongside people in exactly the same season.",
+        gathering: "We eat together, we open the Word and talk about it honestly, and we pray for the week ahead. Come straight from work - nobody is dressing up.",
+        forWho: "Roughly 18 to 30",
+        leader: "",
+        meets: ""
+      }
+    ]
+  };
+
+  var site = clone(DEFAULTS);
+  var lastSaved = clone(DEFAULTS);
+  var store = null;
+  var editing = false;
+  var app = document.getElementById("app");
+
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function get(path) {
+    var parts = path.split("."), cur = site;
+    for (var i = 0; i < parts.length; i++) {
+      if (cur == null) return "";
+      cur = cur[parts[i]];
+    }
+    return cur == null ? "" : cur;
+  }
+
+  function set(path, value) {
+    var parts = path.split("."), cur = site;
+    for (var i = 0; i < parts.length - 1; i++) {
+      if (cur[parts[i]] == null) cur[parts[i]] = {};
+      cur = cur[parts[i]];
+    }
+    cur[parts[parts.length - 1]] = value;
+  }
+
+  /* A field nobody has filled in yet reads as a quiet "Not set yet" rather
+     than an empty gap, so the page never looks broken while the real details
+     are still being gathered. */
+  function field(path, placeholder) {
+    var v = get(path);
+    var body = v ? esc(v) : '<span class="unset">' + esc(placeholder || "Not set yet") + "</span>";
+    return '<span data-bind="' + path + '">' + body + "</span>";
+  }
+
+  function slugify(s) {
+    return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "").slice(0, 40) || "ministry";
+  }
+
+  var GLYPH = {
+    cross: '<svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3v18M6 9h12"/></svg>',
+    table: '<svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 10h18M5 10v9M19 10v9M7 10V7a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/></svg>',
+    vine: '<svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21V8M12 14c-4 0-6-2-6-5M12 11c4 0 6-2 6-5"/><circle cx="5" cy="8" r="2"/><circle cx="19" cy="5" r="2"/></svg>'
+  };
+
+  /* ---------------------------------------------------------------- views -- */
+  function homeView() {
+    var depts = site.departments.map(function (d) {
+      return '<a class="doorway" data-slug="' + esc(d.slug) + '" href="#/' + esc(d.slug) + '">' +
+               "<h3>" + esc(d.name) + "</h3>" +
+               "<p>" + esc(d.short) + "</p>" +
+               '<span class="go">Step inside &rarr;</span>' +
+             "</a>";
+    }).join("");
+
+    var team = site.team.map(function (t, i) {
+      return '<div class="team-row">' +
+               '<span class="who">' + field("team." + i + ".who", "Name to add") + "</span>" +
+               '<span class="what">' + field("team." + i + ".what", "Role") + "</span>" +
+             "</div>";
+    }).join("");
+
+    var mapQuery = encodeURIComponent(
+      (site.church || "Word of Life") + " Church " +
+      (site.addressLine ? site.addressLine + " " : "") +
+      (site.suburb || "") + " " + (site.town || ""));
+
+    return '' +
+    '<section class="abide"><div class="wrap">' +
+      "<div>" +
+        '<p class="year" data-bind="yearLabel">' + esc(site.yearLabel) + "</p>" +
+        '<p class="word" data-bind="yearWord">' + esc(site.yearWord) + "</p>" +
+      "</div>" +
+      "<blockquote>" +
+        '<span data-bind="yearVerse">' + esc(site.yearVerse) + "</span>" +
+        '<cite data-bind="yearVerseRef">' + esc(site.yearVerseRef) + "</cite>" +
+      "</blockquote>" +
+    "</div></section>" +
+
+    '<div class="wrap">' +
+      '<div class="entry">' +
+        "<div>" +
+          '<p class="eyebrow" data-bind="welcomeEyebrow">' + esc(site.welcomeEyebrow) + "</p>" +
+          '<h1 data-bind="welcomeTitle">' + esc(site.welcomeTitle) + "</h1>" +
+          '<p class="lede" data-bind="welcomeLede">' + esc(site.welcomeLede) + "</p>" +
+        "</div>" +
+        '<div class="board">' +
+          "<h2>This Sunday</h2>" +
+          "<dl>" +
+            '<div class="slot"><dt>Service</dt><dd>' + field("boardService", "Time to add") + "</dd></div>" +
+            '<div class="slot"><dt>Prayer</dt><dd>' + field("boardPrayer", "Time to add") + "</dd></div>" +
+            '<div class="slot"><dt>Reading</dt><dd>' + field("boardReading", "Passage to add") + "</dd></div>" +
+          "</dl>" +
+        "</div>" +
+      "</div>" +
+
+      '<hr class="rule">' +
+
+      '<section id="gather">' +
+        '<div class="section-head">' +
+          '<h2 data-bind="gatherTitle">' + esc(site.gatherTitle) + "</h2>" +
+          '<p data-bind="gatherLede">' + esc(site.gatherLede) + "</p>" +
+        "</div>" +
+        '<div class="pillars">' +
+          '<div class="pillar"><h3>' + GLYPH.cross + '<span data-bind="pillar1Title">' + esc(site.pillar1Title) + "</span></h3>" +
+            '<p data-bind="pillar1Body">' + esc(site.pillar1Body) + "</p></div>" +
+          '<div class="pillar"><h3>' + GLYPH.table + '<span data-bind="pillar2Title">' + esc(site.pillar2Title) + "</span></h3>" +
+            '<p data-bind="pillar2Body">' + esc(site.pillar2Body) + "</p></div>" +
+          '<div class="pillar"><h3>' + GLYPH.vine + '<span data-bind="pillar3Title">' + esc(site.pillar3Title) + "</span></h3>" +
+            '<p data-bind="pillar3Body">' + esc(site.pillar3Body) + "</p></div>" +
+        "</div>" +
+      "</section>" +
+
+      '<hr class="rule">' +
+
+      '<section id="ministries">' +
+        '<div class="section-head">' +
+          '<h2 data-bind="deptTitle">' + esc(site.deptTitle) + "</h2>" +
+          '<p data-bind="deptLede">' + esc(site.deptLede) + "</p>" +
+        "</div>" +
+        '<div class="doorways">' + depts + "</div>" +
+        '<div class="dept-admin editonly">' +
+          '<button class="btn" type="button" data-action="add-dept">Add a ministry</button>' +
+          '<button class="btn quiet" type="button" data-action="remove-dept">Remove a ministry</button>' +
+        "</div>" +
+      "</section>" +
+
+      '<hr class="rule">' +
+
+      '<section id="team">' +
+        '<div class="section-head">' +
+          '<h2 data-bind="pastorSectionTitle">' + esc(site.pastorSectionTitle) + "</h2>" +
+          '<p data-bind="pastorSectionLede">' + esc(site.pastorSectionLede) + "</p>" +
+        "</div>" +
+        '<div class="people">' +
+          '<div class="pastor">' +
+            '<div class="portrait" aria-hidden="true">&#10013;</div>' +
+            "<h3>" + field("pastorName", "Pastor's name") + "</h3>" +
+            '<p class="role" data-bind="pastorRole">' + esc(site.pastorRole) + "</p>" +
+            "<p>" + field("pastorWord", "A short word from the pastor - what he would want a visitor to know before they walk in.") + "</p>" +
+          "</div>" +
+          "<div>" + team + "</div>" +
+        "</div>" +
+      "</section>" +
+
+      '<hr class="rule">' +
+
+      '<section id="find">' +
+        '<div class="section-head">' +
+          '<h2 data-bind="findTitle">' + esc(site.findTitle) + "</h2>" +
+          '<p data-bind="findLede">' + esc(site.findLede) + "</p>" +
+        "</div>" +
+        '<div class="find">' +
+          '<dl class="where">' +
+            "<dt>Address</dt><dd>" + field("addressLine", "Street address to add") + "</dd>" +
+            "<dt>Suburb</dt><dd>" + field("suburb") + ", " + field("town") + "</dd>" +
+            "<dt>Province</dt><dd>" + field("province") + "</dd>" +
+            "<dt>Phone</dt><dd>" + field("phone", "Number to add") + "</dd>" +
+            "<dt>Email</dt><dd>" + field("email", "Email to add") + "</dd>" +
+          "</dl>" +
+          '<div class="compass">' +
+            '<svg width="52" height="52" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">' +
+              '<circle cx="24" cy="24" r="19"/><path d="M24 5v6M24 37v6M5 24h6M37 24h6"/>' +
+              '<path d="M24 14l4.5 9.5L24 34l-4.5-10.5z" fill="currentColor" stroke="none"/>' +
+            "</svg>" +
+            '<div class="place">' + esc(site.suburb) + ", " + esc(site.town) + "</div>" +
+            '<div class="sub">' + esc(site.province) + "</div>" +
+            '<a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=' + mapQuery + '" target="_blank" rel="noopener">Open in Google Maps</a>' +
+          "</div>" +
+        "</div>" +
+      "</section>" +
+    "</div>";
+  }
+
+  function deptView(d) {
+    return '' +
+    '<div class="deptpage dept-' + esc(d.slug) + '"><div class="wrap">' +
+      '<div class="dept-head">' +
+        '<a class="backlink" href="#/">&larr; All ministries</a>' +
+        "<h1>" + esc(d.name) + "</h1>" +
+        '<p class="lede">' + esc(d.short) + "</p>" +
+      "</div>" +
+      '<div class="dept-body">' +
+        '<div class="dept-prose">' +
+          "<h2>The heart of it</h2>" +
+          "<p>" + esc(d.heart) + "</p>" +
+          "<h2>What a gathering looks like</h2>" +
+          "<p>" + esc(d.gathering) + "</p>" +
+          "<h2>Coming along</h2>" +
+          "<p>Bring a friend, or bring nothing at all. Come once and see. If you would rather not walk in on your own the first time, message the church and someone will meet you outside.</p>" +
+        "</div>" +
+        '<dl class="dept-facts">' +
+          "<dt>Who it is for</dt><dd>" + (d.forWho ? esc(d.forWho) : '<span class="unset">Everyone welcome</span>') + "</dd>" +
+          "<dt>Meets</dt><dd>" + (d.meets ? esc(d.meets) : '<span class="unset">Time to add</span>') + "</dd>" +
+          "<dt>Led by</dt><dd>" + (d.leader ? esc(d.leader) : '<span class="unset">Name to add</span>') + "</dd>" +
+        "</dl>" +
+      "</div>" +
+    "</div></div>";
+  }
+
+  /* Ministry pages are edited through a small form rather than inline: their
+     text is long-form and lives in an array. */
+  function deptEditView(d, idx) {
+    function row(label, key, multiline) {
+      var v = esc(d[key] || "");
+      var input = multiline
+        ? '<textarea rows="4" data-dept="' + idx + '" data-key="' + key + '">' + v + "</textarea>"
+        : '<input type="text" data-dept="' + idx + '" data-key="' + key + '" value="' + v + '">';
+      return '<label class="dept-field"><span>' + label + "</span>" + input + "</label>";
+    }
+    return '<div class="wrap"><div class="dept-editform">' +
+        "<h2>Edit this ministry</h2>" +
+        row("Name", "name") +
+        row("One-line summary", "short", true) +
+        row("The heart of it", "heart", true) +
+        row("What a gathering looks like", "gathering", true) +
+        row("Who it is for", "forWho") +
+        row("Meets", "meets") +
+        row("Led by", "leader") +
+      "</div></div>";
+  }
+
+  /* ----------------------------------------------------------------- shell -- */
+  function findDept(slug) {
+    for (var i = 0; i < site.departments.length; i++) {
+      if (site.departments[i].slug === slug) return { d: site.departments[i], i: i };
+    }
+    return null;
+  }
+
+  function render() {
+    var hash = location.hash.replace(/^#\/?/, "");
+    var hit = hash ? findDept(hash) : null;
+
+    var nav = site.departments.map(function (d) {
+      return '<a href="#/' + esc(d.slug) + '"' + (hit && hit.d.slug === d.slug ? ' class="on"' : "") +
+             ">" + esc(d.name.replace(/\s*Ministry$/i, "")) + "</a>";
+    }).join("");
+
+    app.innerHTML = '' +
+      '<header class="masthead"><div class="wrap">' +
+        '<a class="wordmark" href="#/"><span class="mark">&#10013;</span><span>' + esc(site.church) + "</span></a>" +
+        '<nav class="mainnav">' +
+          '<a href="#/"' + (hit ? "" : ' class="on"') + ">Home</a>" + nav +
+        "</nav>" +
+      "</div></header>" +
+      (hit ? deptView(hit.d) : homeView()) +
+      (hit && editing ? deptEditView(hit.d, hit.i) : "") +
+      '<footer><div class="wrap">' +
+        '<p class="blessing" data-bind="blessing">' + esc(site.blessing) + "</p>" +
+        '<button class="editbtn" type="button" data-action="toggle-edit">' +
+          (editing ? "Stop editing" : "Edit this site") + "</button>" +
+      "</div></footer>" +
+      '<div class="editbar">' +
+        '<span class="hint">Click any dotted text to change it' +
+          (hit ? ", or use the form above for this ministry" : "") + ".</span>" +
+        '<button class="btn" type="button" data-action="save">Save for everyone</button>' +
+        '<button class="btn quiet" type="button" data-action="cancel">Discard</button>' +
+      "</div>";
+
+    document.body.dataset.edit = editing ? "on" : "off";
+    if (editing) {
+      var nodes = app.querySelectorAll("[data-bind]");
+      for (var i = 0; i < nodes.length; i++) {
+        nodes[i].setAttribute("contenteditable", "true");
+        nodes[i].setAttribute("spellcheck", "false");
+      }
+    }
+  }
+
+  /* Read the edited nodes back into `site`. Reading the bound nodes - not the
+     whole DOM - is what keeps the saved data clean. */
+  function harvest() {
+    var nodes = app.querySelectorAll("[data-bind]");
+    for (var i = 0; i < nodes.length; i++) {
+      var node = nodes[i];
+      var txt = node.innerText.trim();
+      if (node.querySelector(".unset")) txt = "";
+      set(node.getAttribute("data-bind"), txt);
+    }
+    var inputs = app.querySelectorAll("[data-dept]");
+    for (var j = 0; j < inputs.length; j++) {
+      var idx = Number(inputs[j].getAttribute("data-dept"));
+      var key = inputs[j].getAttribute("data-key");
+      if (site.departments[idx]) site.departments[idx][key] = inputs[j].value.trim();
+    }
+  }
+
+  function toast(msg, ms) {
+    var el = document.createElement("div");
+    el.className = "toast";
+    el.setAttribute("role", "status");
+    el.textContent = msg;
+    document.body.appendChild(el);
+    setTimeout(function () { el.remove(); }, ms || 3400);
+  }
+
+  function save() {
+    harvest();
+    if (!store) {
+      editing = false;
+      lastSaved = clone(site);
+      render();
+      toast("Saved on this device only - the shared store is not available here.", 5000);
+      return;
+    }
+    store.set(site).then(function () {
+      editing = false;
+      lastSaved = clone(site);
+      render();
+      toast("Saved. Everyone who opens the site sees this now.");
+    }).catch(function (e) {
+      toast((e && e.code === "invalid_argument")
+        ? "You do not have edit access to this site."
+        : "Could not save right now. Your text is still on screen - try again.", 5000);
+    });
+  }
+
+  /* ---------------------------------------------------------------- events -- */
+  document.addEventListener("click", function (ev) {
+    var el = ev.target.closest ? ev.target.closest("[data-action]") : null;
+    if (!el) return;
+    var action = el.getAttribute("data-action");
+
+    if (action === "toggle-edit") {
+      if (editing) { editing = false; site = clone(lastSaved); }
+      else { editing = true; }
+      render();
+    } else if (action === "save") {
+      save();
+    } else if (action === "cancel") {
+      editing = false; site = clone(lastSaved); render();
+    } else if (action === "add-dept") {
+      harvest();
+      var name = window.prompt("What is the ministry called?");
+      if (!name) return;
+      site.departments.push({
+        slug: slugify(name), name: name, short: "", heart: "",
+        gathering: "", forWho: "", leader: "", meets: ""
+      });
+      render();
+      toast("Added. Open it from the ministries list to fill it in, then save.", 4500);
+    } else if (action === "remove-dept") {
+      harvest();
+      var which = window.prompt("Type the name of the ministry to remove:\n\n" +
+        site.departments.map(function (d) { return "- " + d.name; }).join("\n"));
+      if (!which) return;
+      var before = site.departments.length;
+      site.departments = site.departments.filter(function (d) {
+        return d.name.toLowerCase() !== which.trim().toLowerCase();
+      });
+      if (site.departments.length === before) { toast("No ministry by that name."); return; }
+      render();
+      toast("Removed. Save to make it stick.");
+    }
+  });
+
+  window.addEventListener("hashchange", function () { render(); window.scrollTo(0, 0); });
+
+  /* ------------------------------------------------------------------ boot -- */
+  render();
+
+  /* A stored copy may predate a field added later, so defaults fill the gaps. */
+  function mergeOverDefaults(incoming) {
+    var out = clone(DEFAULTS);
+    Object.keys(incoming).forEach(function (k) {
+      if (incoming[k] !== undefined && incoming[k] !== null) out[k] = incoming[k];
+    });
+    return out;
+  }
+
+  if (window.claude && typeof window.claude.use === "function") {
+    window.claude.use("db").then(function (db) {
+      if (!db) return;
+      store = db.doc("site/content");
+      store.onSnapshot(function (snap) {
+        if (!snap.exists) return;
+        var incoming = snap.data();
+        if (!incoming || typeof incoming !== "object") return;
+        lastSaved = mergeOverDefaults(incoming);
+        if (editing) return;              /* never clobber someone mid-edit */
+        site = clone(lastSaved);
+        render();
+      }, function () { /* subscription died; the page keeps working */ });
+    }).catch(function () { /* no store here - the page still reads fine */ });
+  }
+})();
+</script>
